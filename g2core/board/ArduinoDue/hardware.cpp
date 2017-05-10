@@ -30,8 +30,11 @@
 #include "config.h"  // #2
 #include "hardware.h"
 #include "controller.h"
+#include "planner.h"
 #include "text_parser.h"
 #include "board_xio.h"
+
+
 
 #include "MotateUtilities.h"
 #include "MotateUniqueID.h"
@@ -44,7 +47,10 @@
 
 void hardware_init()
 {
-    board_hardware_init();
+	board_hardware_init();
+	LEDTreeGreen.clear();
+	LEDTreeYellow.clear();
+	LEDTreeRed.clear();
 	return;
 }
 
@@ -54,7 +60,43 @@ void hardware_init()
 
 stat_t hardware_periodic()
 {
-    return STAT_OK;
+    
+	// If we're very time constrained, get out. This isn't critical
+	if (!mp_is_phat_city_time()) { return STAT_OK; }
+	
+	//dump status to LED Tree
+	
+	auto new_machine_state = cm_get_combined_state();
+	
+	switch (new_machine_state) {
+		case COMBINED_INITIALIZING:
+		case COMBINED_READY:
+		case COMBINED_PROGRAM_STOP:
+		case COMBINED_PROGRAM_END:
+		case COMBINED_HOLD:
+		case COMBINED_INTERLOCK:
+			LEDTreeGreen.clear();
+			LEDTreeYellow.set();
+			LEDTreeRed.clear();
+			break;
+		case COMBINED_ALARM:
+		case COMBINED_SHUTDOWN:
+		case COMBINED_PANIC:
+			LEDTreeGreen.clear();
+			LEDTreeYellow.clear();
+			LEDTreeRed.set();
+			break;
+		case COMBINED_RUN:
+		case COMBINED_PROBE:
+		case COMBINED_CYCLE:
+		case COMBINED_HOMING:
+		case COMBINED_JOG:
+			LEDTreeGreen.set();
+			LEDTreeYellow.clear();
+			LEDTreeRed.clear();
+	}
+	
+	return STAT_OK;
 }
 
 /*
