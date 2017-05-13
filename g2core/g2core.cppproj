@@ -179,8 +179,8 @@
       </ArmGccCpp>
     </ToolchainSettings>
     <UsesExternalMakeFile>True</UsesExternalMakeFile>
-    <BuildTarget>BOARD=gShield COLOR=0 VERBOSE=1</BuildTarget>
-    <CleanTarget>clean BOARD=gShield</CleanTarget>
+    <BuildTarget>BOARD=gShield SETTINGS_FILE="settings_jg_copley1.h" COLOR=0 VERBOSE=1</BuildTarget>
+    <CleanTarget>clean BOARD=gShield SETTINGS_FILE="settings_jg_copley1.h"</CleanTarget>
     <ExternalMakeFilePath>Makefile</ExternalMakeFilePath>
     <OutputDirectory />
   </PropertyGroup>
@@ -1718,6 +1718,12 @@
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="marlin_compatibility.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="settings\settings_jg_copley1.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="settings\settings_jg_w_copley.h">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="settings\settings_makeblock.h">
