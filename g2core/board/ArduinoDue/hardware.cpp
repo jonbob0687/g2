@@ -51,6 +51,7 @@ void hardware_init()
 	LEDTreeGreen.clear();
 	LEDTreeYellow.clear();
 	LEDTreeRed.clear();
+	LEDInterlock.clear();
 	return;
 }
 
@@ -74,10 +75,15 @@ stat_t hardware_periodic()
 		case COMBINED_PROGRAM_STOP:
 		case COMBINED_PROGRAM_END:
 		case COMBINED_HOLD:
+			LEDTreeGreen.clear();
+			LEDTreeYellow.set();
+			LEDTreeRed.clear();
+			break;
 		case COMBINED_INTERLOCK:
 			LEDTreeGreen.clear();
 			LEDTreeYellow.set();
 			LEDTreeRed.clear();
+			LEDInterlock.set();
 			break;
 		case COMBINED_ALARM:
 		case COMBINED_SHUTDOWN:
@@ -85,6 +91,7 @@ stat_t hardware_periodic()
 			LEDTreeGreen.clear();
 			LEDTreeYellow.clear();
 			LEDTreeRed.set();
+			LEDInterlock.clear();
 			break;
 		case COMBINED_RUN:
 		case COMBINED_PROBE:
@@ -94,6 +101,7 @@ stat_t hardware_periodic()
 			LEDTreeGreen.set();
 			LEDTreeYellow.clear();
 			LEDTreeRed.clear();
+			LEDInterlock.clear();
 	}
 	
 	return STAT_OK;

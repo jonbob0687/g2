@@ -156,7 +156,7 @@ pin_number kSocket2_Microstep_1PinNumber    = 27;
 pin_number kSocket2_Microstep_2PinNumber    = -1;
 pin_number kSocket2_VrefPinNumber           = -1;  // 62; //PWMTimer<1>
 
-pin_number kSocket3_SPISlaveSelectPinNumber = 52;
+pin_number kSocket3_SPISlaveSelectPinNumber = -1;
 pin_number kSocket3_InterruptPinNumber      = -1;
 pin_number kSocket3_StepPinNumber           = 4;
 pin_number kSocket3_DirPinNumber            = 7;
@@ -182,20 +182,20 @@ pin_number kSocket5_StepPinNumber           = 37;
 pin_number kSocket5_DirPinNumber            = 38;
 //pin_number kSocket5_EnablePinNumber         = 39;
 pin_number kSocket5_EnablePinNumber         = -1; // added - jg
-pin_number kSocket5_Microstep_0PinNumber    = 40;
+pin_number kSocket5_Microstep_0PinNumber    = -1; //40
 //pin_number kSocket5_Microstep_1PinNumber    = 41;
 pin_number kSocket5_Microstep_1PinNumber    = -1;  //added - jg
 pin_number kSocket5_Microstep_2PinNumber    = -1;
 pin_number kSocket5_VrefPinNumber           = -1;  // 66; //PWMTimer<3>
 
-pin_number kSocket6_SPISlaveSelectPinNumber = 50;
+pin_number kSocket6_SPISlaveSelectPinNumber = -1;
 pin_number kSocket6_InterruptPinNumber      = -1;
-pin_number kSocket6_StepPinNumber           = 42;
+pin_number kSocket6_StepPinNumber           = -1;//42
 //pin_number kSocket6_DirPinNumber            = 43;
 pin_number kSocket6_DirPinNumber            = -1; // added - jg
-pin_number kSocket6_EnablePinNumber         = 44;
+pin_number kSocket6_EnablePinNumber         = -1; //44
 pin_number kSocket6_Microstep_0PinNumber    = -1;  // 45;
-pin_number kSocket6_Microstep_1PinNumber    = 46;
+pin_number kSocket6_Microstep_1PinNumber    = -1;
 pin_number kSocket6_Microstep_2PinNumber    = -1;
 pin_number kSocket6_VrefPinNumber           = -1;  // 67; //PWMTimer<0>
 
@@ -207,9 +207,9 @@ pin_number kInput4_PinNumber = 17;
 pin_number kInput5_PinNumber = 18;
 pin_number kInput6_PinNumber = 19;
 
-pin_number kInput7_PinNumber  = 58;
-pin_number kInput8_PinNumber  = 20; //jg -changed, was 59
-pin_number kInput9_PinNumber  = 60;
+pin_number kInput7_PinNumber  = 42; //58 cycle start input
+pin_number kInput8_PinNumber  = 40; //59 feed hold input
+pin_number kInput9_PinNumber  = 44; //60 interlock input
 pin_number kInput10_PinNumber = 61;
 pin_number kInput11_PinNumber = 65;
 //pin_number kInput12_PinNumber = 51;
@@ -283,6 +283,7 @@ pin_number kGRBL_CommonEnablePinNumber = 8;
 pin_number jg_led_tree_green_pin	= 48;
 pin_number jg_led_tree_yellow_pin	= 50;
 pin_number jg_led_tree_red_pin		= 52;
+pin_number jg_led_interlock			= 46;
 
 }  // namespace Motate
 

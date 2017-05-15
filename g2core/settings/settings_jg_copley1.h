@@ -224,7 +224,7 @@
 #define M1_STEPS_PER_UNIT           2000                       // {1su:  steps to issue per unit of length or degrees of rotation
 #endif
 #ifndef M1_POLARITY
-#define M1_POLARITY                 0                       // {1po:  0=normal direction, 1=inverted direction
+#define M1_POLARITY                 1                       // {1po:  0=normal direction, 1=inverted direction
 #endif
 #ifndef M1_POWER_MODE
 #define M1_POWER_MODE               MOTOR_ALWAYS_POWERED    // {1pm:  MOTOR_DISABLED, MOTOR_ALWAYS_POWERED, MOTOR_POWERED_IN_CYCLE, MOTOR_POWERED_ONLY_WHEN_MOVING
@@ -250,7 +250,7 @@
 #define M2_STEPS_PER_UNIT           2000
 #endif
 #ifndef M2_POLARITY
-#define M2_POLARITY                 0
+#define M2_POLARITY                 1
 #endif
 #ifndef M2_POWER_MODE
 #define M2_POWER_MODE               MOTOR_ALWAYS_POWERED
@@ -752,7 +752,7 @@
 #define DI7_MODE                    IO_ACTIVE_LOW     // Normally open
 #endif
 #ifndef DI7_ACTION
-#define DI7_ACTION                  INPUT_ACTION_NONE
+#define DI7_ACTION                  INPUT_ACTION_NONE //cycle start
 #endif
 #ifndef DI7_FUNCTION
 #define DI7_FUNCTION                INPUT_FUNCTION_NONE
@@ -763,7 +763,7 @@
 #define DI8_MODE                    IO_ACTIVE_LOW     // Normally open
 #endif
 #ifndef DI8_ACTION
-#define DI8_ACTION                  INPUT_ACTION_NONE
+#define DI8_ACTION                  INPUT_ACTION_STOP //feed hold
 #endif
 #ifndef DI8_FUNCTION
 #define DI8_FUNCTION                INPUT_FUNCTION_NONE
@@ -774,10 +774,10 @@
 #define DI9_MODE                    IO_ACTIVE_HIGH     // Normally closed
 #endif
 #ifndef DI9_ACTION
-#define DI9_ACTION                  INPUT_ACTION_NONE
+#define DI9_ACTION                  INPUT_ACTION_FAST_STOP  //interlock input
 #endif
 #ifndef DI9_FUNCTION
-#define DI9_FUNCTION                INPUT_FUNCTION_NONE
+#define DI9_FUNCTION                INPUT_FUNCTION_INTERLOCK
 #endif
 
 #ifndef DI10_MODE
@@ -814,35 +814,35 @@
 
 //Extruder1_PWM
 #ifndef DO1_MODE
-#define DO1_MODE                    IO_ACTIVE_HIGH
+#define DO1_MODE                    IO_ACTIVE_LOW
 #endif
 
 //Extruder2_PWM
 #ifndef DO2_MODE
-#define DO2_MODE                    IO_ACTIVE_HIGH
+#define DO2_MODE                    IO_ACTIVE_LOW
 #endif
 
 //Fan1A_PWM
 #ifndef DO3_MODE
-#define DO3_MODE                    IO_ACTIVE_HIGH
+#define DO3_MODE                    IO_ACTIVE_LOW
 #endif
 
 //Fan1B_PWM
 #ifndef DO4_MODE
-#define DO4_MODE                    IO_ACTIVE_HIGH
+#define DO4_MODE                    IO_ACTIVE_LOW
 #endif
 
 #ifndef DO5_MODE
-#define DO5_MODE                    IO_ACTIVE_HIGH
+#define DO5_MODE                    IO_ACTIVE_LOW
 #endif
 #ifndef DO6_MODE
-#define DO6_MODE                    IO_ACTIVE_HIGH
+#define DO6_MODE                    IO_ACTIVE_LOW
 #endif
 #ifndef DO7_MODE
-#define DO7_MODE                    IO_ACTIVE_HIGH
+#define DO7_MODE                    IO_ACTIVE_LOW
 #endif
 #ifndef DO8_MODE
-#define DO8_MODE                    IO_ACTIVE_HIGH
+#define DO8_MODE                    IO_ACTIVE_LOW
 #endif
 
 //SAFEin (Output) signal

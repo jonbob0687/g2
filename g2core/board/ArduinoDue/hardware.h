@@ -141,6 +141,7 @@ static PWMOutputPin<indicator_led_pin_num> IndicatorLed;
 static OutputPin<Motate::jg_led_tree_green_pin> LEDTreeGreen;
 static OutputPin<Motate::jg_led_tree_yellow_pin> LEDTreeYellow;
 static OutputPin<Motate::jg_led_tree_red_pin> LEDTreeRed;
+static OutputPin<Motate::jg_led_interlock> LEDInterlock;
 
 // Init these to input to keep them high-z
 static Pin<Motate::kSPI0_MISOPinNumber> spi_miso_pin(Motate::kInput);
